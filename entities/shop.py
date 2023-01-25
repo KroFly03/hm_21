@@ -7,7 +7,7 @@ class Shop(BaseStorage):
         super().__init__(items, capacity)
 
     def add(self, name, amount):
-        if self.get_unique_items_count() >= 5:
+        if self.get_unique_items_count() >= 5 and name not in self.get_items():
             raise TooManyDifferentItems
 
         super().add(name, amount)
